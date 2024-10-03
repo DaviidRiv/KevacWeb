@@ -23,5 +23,7 @@ namespace QuevakWeb.Data
         public DbSet<QuevakWeb.Models.AreaModel>? AreaModel { get; set; }
 
         public DbSet<QuevakWeb.Models.CheckListModel>? CheckListModel { get; set; }
+        public DbSet<QuevakWeb.Models.AuxModels.CheckListTareaModel>? CheckListTareaModel { get; set; }
+        public DbSet<QuevakWeb.Models.AuxModels.CheckListAreaModel>? CheckListAreaModel { get; set; }
     }
 }

@@ -58,6 +58,12 @@
                                 @Html.DisplayNameFor(model => model.Cliente)
                             </th>
                             <th>
+                                Tareas
+                            </th>
+                            <th>
+                                Areas
+                            </th>
+                            <th>
                                 @Html.DisplayNameFor(model => model.Observacion)
                             </th>
                             <th>Opciones</th>
@@ -76,6 +82,12 @@
                             </th>
                             <th>
                                 @Html.DisplayNameFor(model => model.Cliente)
+                            </th>
+                            <th>
+                                Tareas
+                            </th>
+                            <th>
+                                Areas
                             </th>
                             <th>
                                 @Html.DisplayNameFor(model => model.Observacion)
@@ -98,6 +110,32 @@
                                 </td>
                                 <td>
                                     @Html.DisplayFor(modelItem => item.Cliente.NombreRS)
+                                </td>
+                                <td>
+                                    @if (item.CheckListTareas != null && item.CheckListTareas.Any())
+                                    {
+                                        @foreach (var tarea in item.CheckListTareas)
+                                        {
+                                            <div>@tarea.Tarea.Tarea</div>
+                                        }
+                                    }
+                                    else
+                                    {
+                                        <span>No hay tareas asignadas</span>
+                                    }
+                                </td>
+                                <td>
+                                    @if (item.CheckListAreas != null && item.CheckListAreas.Any())
+                                    {
+                                        @foreach (var area in item.CheckListAreas)
+                                        {
+                                            <div>@area.Area.Area</div>
+                                        }
+                                    }
+                                    else
+                                    {
+                                        <span>No hay areas asignadas</span>
+                                    }
                                 </td>
                                 <td>
                                     @Html.DisplayFor(modelItem => item.Observacion)

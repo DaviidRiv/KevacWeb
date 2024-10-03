@@ -1,0 +1,92 @@
+﻿@model QuevakWeb.Models.AreaModel
+
+@{
+    ViewData["Title"] = "Editar Area";
+    string nombreViewPadre = "Lista de Areas";
+    string nombreView = "Area";
+}
+
+<div class="container-fluid">
+    <div>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a asp-controller="Home" asp-action="Index"><i class="bi bi-house"></i> Inicio</a></li>
+            <li class="breadcrumb-item active" aria-current="page">
+                <a asp-action="Index">@nombreViewPadre</a>
+            </li>
+            <li class="breadcrumb-item active" aria-current="page">Editar @nombreView : @Model.IdArea</li>
+        </ol>
+    </div>
+
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        <h1 class="h3 mb-0 text-gray-800">@ViewData["Title"]</h1>
+    </div>
+
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">Editar @nombreView : @Model.IdArea</h6>
+        </div>
+        <div>
+            @if (TempData["ErrorArea"] != null)
+            {
+                <div class="alert alert-danger" role="alert">
+                    @TempData["ErrorArea"]
+                </div>
+            }
+        </div>
+        <form asp-action="Edit">
+            <div class="row g-3 p-3">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                <input type="hidden" name="id" value="@Model.IdArea" />
+                <input type="hidden" asp-for="IdArea" />
+
+                <div class="form-group col-md-6 mb-3 d-flex flex-column">
+                    <label asp-for="Area" class="control-label"></label>
+                    <input asp-for="Area" class="form-control text-muted" />
+                    <span asp-validation-for="Area" class="text-danger"></span>
+                </div>
+                <div class="form-group col-md-6 mb-3 d-flex flex-column">
+                    <label asp-for="HorarioI" class="control-label"></label>
+                    <input asp-for="HorarioI" type="time" class="form-control text-muted" />
+                    <span asp-validation-for="HorarioI" class="text-danger"></span>
+                </div>
+                <div class="form-group col-md-6 mb-3 d-flex flex-column">
+                    <label asp-for="HorarioF" class="control-label"></label>
+                    <input asp-for="HorarioF" type="time" class="form-control text-muted" />
+                    <span asp-validation-for="HorarioF" class="text-danger"></span>
+                </div>
+                <div class="form-group col-md-6 mb-3 d-flex flex-column">
+                    <label asp-for="Fecha" class="control-label"></label>
+                    <input asp-for="Fecha" type="datetime-local" class="form-control text-muted" />
+                    <span asp-validation-for="Fecha" class="text-danger"></span>
+                </div>
+                
+                <div class="row mb-3">
+                    <div class="col-md-4 d-flex justify-content-start">
+                        <a class="btn btn-secondary btn-icon-split mb-3" asp-action="Index">
+                            <span class="icon text-white-50">
+                                <i class="bi bi-arrow-left-circle-fill"></i>
+                            </span>
+                            <span class="text">Regresar</span>
+                        </a>
+                    </div>
+                    <div class="col-md-4 d-flex justify-content-center">
+                        <button type="submit" class="btn btn-primary btn-icon-split mb-3" value="Create">
+                            <span class="icon text-white-50">
+                                <i class="bi bi-bookmark-plus-fill"></i>
+                            </span>
+                            <span class="text">Guardar</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

@@ -1,0 +1,51 @@
+﻿/*.btn-exportar-excel {
+    background-color: #198754 !important;
+    color: white !important;
+}
+
+.btn-exportar-pdf {
+    background-color: #dc3545 !important;
+    color: white !important;
+}
+
+.btn-exportar-print {
+    background-color: #00a7c9 !important;
+    color: white !important;
+}
+
+.btn-colvis {
+    background-color: #898989 !important;
+    color: white !important;
+}
+
+.btn-exportar-copy {
+    background-color: #095131 !important;
+    color: white !important;
+}
+
+.btn-exportar-csv {
+    background-color: #b42800 !important;
+    color: white !important;
+}*/
+
+tr, td {
+    text-align: center !important;
+    vertical-align: middle !important;
+}
+
+.table {
+    width: 100% !important;
+}
+
+th, td {
+    text-align: center !important;
+    vertical-align: middle !important;
+}
+
+.dt-buttons {
+    margin-bottom: 10px;
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+    background-color: #f9fff9 !important;
+}

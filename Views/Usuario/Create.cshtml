@@ -1,0 +1,128 @@
+﻿@model QuevakWeb.Models.UsuarioModel
+
+@{
+    ViewData["Title"] = "Nuevo Usuario";
+    string nombreViewPadre = "Lista de Usuarios";
+    string nombreView = "Usuario";
+}
+
+<div class="container-fluid">
+    <div>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a asp-controller="Home" asp-action="Index"><i class="bi bi-house"></i> Inicio</a></li>
+            <li class="breadcrumb-item active" aria-current="page">
+                <a asp-action="Index">@nombreViewPadre</a>
+            </li>
+            <li class="breadcrumb-item active" aria-current="page">Nuevo @nombreView</li>
+        </ol>
+    </div>
+
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        <h1 class="h3 mb-0 text-gray-800">@ViewData["Title"]</h1>
+    </div>
+
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">Nuevo @nombreView</h6>
+        </div>
+        <div>
+            @if (TempData["ErrorUsuario"] != null)
+            {
+                <div class="alert alert-danger" role="alert">
+                    @TempData["ErrorUsuario"]
+                </div>
+            }
+        </div>
+        <form asp-action="Create" method="post">
+            <div class="row g-3 p-3">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group col-md-6 mb-3 d-flex flex-column">
+                    <label asp-for="Nombre" class="control-label"></label>
+                    <input asp-for="Nombre" class="form-control text-muted" placeholder="Nombre" required />
+                    <span asp-validation-for="Nombre" class="text-danger"></span>
+                </div>
+                <div class="form-group col-md-6 mb-3 d-flex flex-column">
+                    <label asp-for="ApellidoP" class="control-label"></label>
+                    <input asp-for="ApellidoP" class="form-control text-muted" placeholder="Apellido Paterno" required />
+                    <span asp-validation-for="ApellidoP" class="text-danger"></span>
+                </div>
+                <div class="form-group col-md-6 mb-3 d-flex flex-column">
+                    <label asp-for="ApellidoM" class="control-label"></label>
+                    <input asp-for="ApellidoM" class="form-control text-muted" placeholder="Apellido Materno" required />
+                    <span asp-validation-for="ApellidoM" class="text-danger"></span>
+                </div>
+                <div class="form-group col-md-6 mb-3 d-flex flex-column">
+                    <label asp-for="Password" class="control-label"></label>
+                    <div class="input-group">
+                        <input asp-for="Password" type="password" class="form-control" placeholder="******" required />
+                        <div class="input-group-append">
+                            <span type="button" class="input-group-text" onclick="togglePasswordVisibility()">
+                                <i class="bi bi-eye-slash-fill" id="togglePasswordIcon"></i>
+                            </span>
+                        </div>
+                    </div>
+                    <span asp-validation-for="Password" class="text-danger"></span>
+                </div>
+                <div class="form-group col-md-6 mb-3 d-flex flex-column">
+                    <label asp-for="RolUser" class="control-label"></label>
+                    <select asp-for="RolUser" class="form-select" required>
+                        <option value="Administrador">Administrador</option>
+                        <option value="Tecnico">Técnico</option>
+                    </select>
+                    <span asp-validation-for="RolUser" class="text-danger"></span>
+                </div>
+
+                <div class="row mb-3">
+                    <div class="col-md-4 d-flex justify-content-start">
+                        <a class="btn btn-secondary btn-icon-split mb-3" asp-action="Index">
+                            <span class="icon text-white-50">
+                                <i class="bi bi-arrow-left-circle-fill"></i>
+                            </span>
+                            <span class="text">Regresar</span>
+                        </a>
+                    </div>
+                    <div class="col-md-4 d-flex justify-content-center">
+                        <button type="submit" class="btn btn-primary btn-icon-split mb-3" value="Create">
+                            <span class="icon text-white-50">
+                                <i class="bi bi-bookmark-plus-fill"></i>
+                            </span>
+                            <span class="text">Guardar</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    <script type="text/javascript">
+        function togglePasswordVisibility() {
+            var passwordInput = document.getElementById('Password');
+            var togglePasswordIcon = document.getElementById('togglePasswordIcon');
+
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                togglePasswordIcon.classList.remove('bi-eye-slash-fill');
+                togglePasswordIcon.classList.add('bi-eye-fill');
+            } else {
+                passwordInput.type = 'password';
+                togglePasswordIcon.classList.remove('bi-eye-fill');
+                togglePasswordIcon.classList.add('bi-eye-slash-fill');
+            }
+        }
+
+        document.getElementById('Password').addEventListener('input', function () {
+            var password = this.value;
+            var isValid = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@@#$%^&*]).{6,}$/.test(password);
+            if (!isValid) {
+                this.setCustomValidity('La contraseña debe contener al menos 6 caracteres, una mayúscula, un carácter especial y un número.');
+            } else {
+                this.setCustomValidity('');
+            }
+        });
+    </script>
+}

@@ -1,0 +1,95 @@
+﻿@model QuevakWeb.Models.CheckListModel
+
+@{
+    ViewData["Title"] = "Editar Checklist";
+    string nombreViewPadre = "Lista de Checklists";
+    string nombreView = "Checklist";
+}
+<div class="container-fluid">
+    <div>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a asp-controller="Home" asp-action="Index"><i class="bi bi-house"></i> Inicio</a></li>
+            <li class="breadcrumb-item active" aria-current="page">
+                <a asp-action="Index">@nombreViewPadre</a>
+            </li>
+            <li class="breadcrumb-item active" aria-current="page">Editar @nombreView : @Model.IdCheckList</li>
+        </ol>
+    </div>
+
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        <h1 class="h3 mb-0 text-gray-800">@ViewData["Title"]</h1>
+    </div>
+
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">Editar @nombreView : @Model.IdCheckList</h6>
+        </div>
+        <div>
+            @if (TempData["ErrorChecklist"] != null)
+            {
+                <div class="alert alert-danger" role="alert">
+                    @TempData["ErrorChecklist"]
+                </div>
+            }
+        </div>
+        <form asp-action="Edit">
+            <div class="row g-3 p-3">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                <input type="hidden" name="id" value="@Model.IdCheckList" />
+                <input type="hidden" asp-for="IdCheckList" />
+
+                <div class="form-group col-md-6 mb-3 d-flex flex-column">
+                    <label asp-for="Fecha" class="control-label"></label>
+                    <input asp-for="Fecha" class="form-control" />
+                    <span asp-validation-for="Fecha" class="text-danger"></span>
+                </div>
+                <div class="form-group col-md-6 mb-3 d-flex flex-column">
+                    <label asp-for="UsuarioId" class="control-label"></label>
+                    <select asp-for="UsuarioId" class="form-control" asp-items="ViewBag.UsuarioId"></select>
+                    <span asp-validation-for="UsuarioId" class="text-danger"></span>
+                </div>
+                <div class="form-group col-md-6 mb-3 d-flex flex-column">
+                    <label asp-for="ClienteId" class="control-label"></label>
+                    <select asp-for="ClienteId" class="form-control" asp-items="ViewBag.ClienteId"></select>
+                    <span asp-validation-for="ClienteId" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Observacion" class="control-label"></label>
+                    <input asp-for="Observacion" class="form-control" />
+                    <span asp-validation-for="Observacion" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Firma" class="control-label"></label>
+                    <input asp-for="Firma" class="form-control" />
+                    <span asp-validation-for="Firma" class="text-danger"></span>
+                </div>
+
+                <div class="row mb-3">
+                    <div class="col-md-4 d-flex justify-content-start">
+                        <a class="btn btn-secondary btn-icon-split mb-3" asp-action="Index">
+                            <span class="icon text-white-50">
+                                <i class="bi bi-arrow-left-circle-fill"></i>
+                            </span>
+                            <span class="text">Regresar</span>
+                        </a>
+                    </div>
+                    <div class="col-md-4 d-flex justify-content-center">
+                        <button type="submit" class="btn btn-primary btn-icon-split mb-3" value="Create">
+                            <span class="icon text-white-50">
+                                <i class="bi bi-bookmark-plus-fill"></i>
+                            </span>
+                            <span class="text">Guardar</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

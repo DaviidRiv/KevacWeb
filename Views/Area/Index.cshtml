@@ -1,0 +1,150 @@
+﻿@model IEnumerable<QuevakWeb.Models.AreaModel>
+
+@{
+    ViewData["Title"] = "Lista de Areas";
+    string bttn = "Nueva Area";
+}
+
+<div class="container-fluid">
+    <div>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a asp-controller="Home" asp-action="Index"><i class="bi bi-house"></i> Inicio</a></li>
+            <li class="breadcrumb-item active" aria-current="page">@ViewData["Title"]</li>
+        </ol>
+    </div>
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        <h1 class="h3 mb-0 text-gray-800">@ViewData["Title"]</h1>
+        <a asp-action="Create" class="btn btn-primary btn-icon-split mb-3">
+            <span class="icon text-white-50">
+                <i class="bi bi-plus-square-fill"></i>
+            </span>
+            <span class="text">@bttn</span>
+        </a>
+    </div>
+
+    <div>
+        @if (TempData["ErrorArea"] != null)
+        {
+            <div class="alert alert-danger" role="alert">
+                @TempData["ErrorArea"]
+            </div>
+        }
+        @if (TempData["SuccessArea"] != null)
+        {
+            <div class="alert alert-success" role="alert">
+                @TempData["SuccessArea"]
+            </div>
+        }
+    </div>
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">Tabla @ViewData["Title"]</h6>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered table-striped" id="dataTable">
+                    <thead class="table-light table-bordered">
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.IdArea)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Area)
+                            </th>
+                            <th>
+                                Horario
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Fecha)
+                            </th>
+                            <th>Opciones</th>
+                        </tr>
+                    </thead>
+                    <tfoot class="table-light table-bordered">
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.IdArea)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Area)
+                            </th>
+                            <th>
+                                Horario
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Fecha)
+                            </th>
+                            <th>Opciones</th>
+                        </tr>
+                    </tfoot>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.IdArea)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Area)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.HorarioI) - @Html.DisplayFor(modelItem => item.HorarioF)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Fecha)
+                                </td>
+                                <td>
+                                    <div class="justify-content-center d-flex" style="gap: 5px;">
+                                        <a asp-action="Details" asp-route-id="@item.IdArea" class="btn btn-success btn-icon-split">
+                                            <span class="icon text-white-50">
+                                                <i class="bi bi-eye-fill"></i>
+                                            </span>
+                                        </a>
+                                        <a asp-action="Edit" asp-route-id="@item.IdArea" class="btn btn-primary btn-icon-split">
+                                            <span class="icon text-white-50">
+                                                <i class="bi bi-pen-fill"></i>
+                                            </span>
+                                        </a>
+                                        <a href="#" class="btn btn-danger btn-icon-split" data-bs-toggle="modal"
+                                           data-bs-target="#exampleModalCenter-@item.IdArea">
+                                            <span class="icon text-white-50">
+                                                <i class="bi bi-trash-fill"></i>
+                                            </span>
+                                        </a>
+                                    </div>
+
+                                    <div class="modal fade" id="exampleModalCenter-@item.IdArea" tabindex="-1" role="dialog"
+                                         aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                        <div class="modal-dialog modal-dialog-centered" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title text-gray-800" id="exampleModalLongTitle">Eliminar Area</h5>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <p>
+                                                        ¿Seguro que quieres eliminar la Area? <br />
+                                                        "@item.IdArea - @item.Area"
+                                                    </p>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-outline-secondary me-auto" data-bs-dismiss="modal">Cancelar</button>
+                                                    <a asp-controller="Area" asp-action="DeleteConfirmed" asp-route-id="@item.IdArea" class="btn btn-danger btn-icon-split" value="Delete">
+                                                        <span class="icon text-white-50">
+                                                            <i class="bi bi-trash-fill"></i>
+                                                        </span>
+                                                        <span class="text">Eliminar</span>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

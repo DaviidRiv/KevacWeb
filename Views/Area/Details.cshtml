@@ -1,0 +1,66 @@
+﻿@model QuevakWeb.Models.AreaModel
+
+@{
+    ViewData["Title"] = "Detalles Area";
+    string nombreViewPadre = "Areas";
+    string nombreView = "Area";
+}
+
+<div class="container-fluid">
+    <div>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a asp-controller="Home" asp-action="Index"><i class="bi bi-house"></i> Inicio</a></li>
+            <li class="breadcrumb-item active" aria-current="page">
+                <a asp-action="Index">@nombreViewPadre</a>
+            </li>
+            <li class="breadcrumb-item active" aria-current="page">Detalles @nombreView</li>
+        </ol>
+    </div>
+
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        <h1 class="h3 mb-0 text-gray-800">@ViewData["Title"]</h1>
+    </div>
+
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">Información del @nombreView : @Model.IdArea</h6>
+        </div>
+        <div class="row g-3 p-3">
+            <div class="col-md-4 mb-3">
+                <label asp-for="Area" class="form-label"></label>
+                <p>@Html.DisplayFor(model => model.Area)</p>
+            </div>
+            <div class="col-md-4 mb-3">
+                <label for="Horario" class="form-label">Horario</label>
+                <p>@Html.DisplayFor(model => model.HorarioI) - @Html.DisplayFor(model => model.HorarioF)</p>
+            </div>
+            <div class="col-md-4 mb-3">
+                <label asp-for="Fecha" class="form-label"></label>
+                <p>@Html.DisplayFor(model => model.Fecha)</p>
+            </div>
+            <div class="col-md-4 mb-3">
+                <label asp-for="NameLastEdit" class="form-label"></label>
+                <p>@Html.DisplayFor(model => model.NameLastEdit)</p>
+            </div>
+            <div class="col-md-4 mb-3">
+                <label asp-for="DateLastEdit" class="form-label"></label>
+                <p>@Html.DisplayFor(model => model.DateLastEdit)</p>
+            </div>
+        </div>
+        <div class="col-md-12 mb-3 d-flex justify-content-center">
+            <a class="btn btn-primary btn-icon-split mb-3 me-2" asp-action="Edit" asp-route-id="@Model?.IdArea">
+                <span class="icon text-white-50">
+                    <i class="bi bi-pen-fill"></i>
+                </span>
+                <span class="text">Editar</span>
+            </a>
+            <a class="btn btn-secondary btn-icon-split mb-3" asp-action="Index">
+                <span class="icon text-white-50">
+                    <i class="bi bi-arrow-left-circle-fill"></i>
+                </span>
+                <span class="text">Regresar</span>
+            </a>
+        </div>
+        <div class="w-100 mb-3"></div>
+    </div>
+</div>

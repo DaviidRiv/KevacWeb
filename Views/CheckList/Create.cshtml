@@ -5,7 +5,10 @@
     string nombreViewPadre = "Lista de Areas";
     string nombreView = "Area";
 }
-
+<head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/signature_pad/1.5.3/signature_pad.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/signature_pad/1.5.3/signature-pad.css">
+</head>
 <div class="container-fluid">
     <div>
         <ol class="breadcrumb">
@@ -83,9 +86,16 @@
                 </div>
                 <div class="form-group col-md-6 mb-3 d-flex flex-column">
                     <label asp-for="Firma" class="control-label"></label>
-                    <input asp-for="Firma" class="form-control text-muted" />
-                    <span asp-validation-for="Firma" class="text-danger"></span>
+                    <div class="col-md-6 mb-3">
+                        <canvas id="signatureCanvas2" style="border:1px solid;"></canvas>
+                        <button type="button" class="btn btn-outline-secondary" onclick="clearSignature2()">Borrar Firma</button>
+                        <input type="hidden" asp-for="Firma" id="hiddenFirmaCliente2" />
+                        <span asp-validation-for="Firma" class="text-danger"></span>
+                    </div>
                 </div>
+                <br />
+                <div class="w-100 mb-3"></div>
+
                 <div class="row mb-3">
                     <div class="col-md-4 d-flex justify-content-start">
                         <a class="btn btn-secondary btn-icon-split mb-3" asp-action="Index">
@@ -122,5 +132,20 @@
             return localDate.toISOString().slice(0, 16);
         }
         document.getElementById('Fecha').value = getLocalDateTime();
+    </script>
+    <script>
+        var canvas2 = new SignaturePad(document.getElementById('signatureCanvas2'), {
+            backgroundColor: 'rgb(255, 255, 255)',
+            penColor: 'rgb(0, 0, 0)'
+        });
+
+        function clearSignature2() {
+            canvas2.clear();
+            document.getElementById('hiddenFirmaCliente2').value = '';
+        }
+
+        canvas2.onEnd = function () {
+            document.getElementById('hiddenFirmaCliente2').value = canvas2.toDataURL();
+        };
     </script>
 }

@@ -33,7 +33,6 @@ namespace QuevakWeb.Controllers
             return View(await quevakWebContext.ToListAsync());
         }
 
-
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null || _context.CheckListModel == null)
@@ -44,7 +43,12 @@ namespace QuevakWeb.Controllers
             var checkListModel = await _context.CheckListModel
                 .Include(c => c.Cliente)
                 .Include(c => c.Usuario)
+                .Include(c => c.CheckListTareas) // Incluir las tareas asociadas
+                    .ThenInclude(clt => clt.Tarea)
+                .Include(c => c.CheckListAreas) // Incluir las areas asociadas
+                    .ThenInclude(cla => cla.Area)
                 .FirstOrDefaultAsync(m => m.IdCheckList == id);
+
             if (checkListModel == null)
             {
                 return NotFound();
@@ -52,6 +56,7 @@ namespace QuevakWeb.Controllers
 
             return View(checkListModel);
         }
+
 
         public IActionResult Create()
         {
@@ -321,15 +326,38 @@ namespace QuevakWeb.Controllers
                 TempData["ErrorChecklist"] = "La eliminación no pudo ser completada.";
                 return RedirectToAction(nameof(Index));
             }
-            var checkListModel = await _context.CheckListModel.FindAsync(id);
-            if (checkListModel != null)
+
+            // Obtener el checklist y las tareas relacionadas
+            var checkListModel = await _context.CheckListModel
+                .Include(c => c.CheckListTareas)
+                .Include(c => c.CheckListAreas)
+                .FirstOrDefaultAsync(c => c.IdCheckList == id);
+
+            if (checkListModel == null)
             {
-                _context.CheckListModel.Remove(checkListModel);
+                TempData["ErrorChecklist"] = "Checklist no encontrado.";
+                return RedirectToAction(nameof(Index));
             }
 
+            // Eliminar las tareas relacionadas primero
+            if (checkListModel.CheckListTareas != null && checkListModel.CheckListTareas.Any())
+            {
+                _context.CheckListTareaModel.RemoveRange(checkListModel.CheckListTareas);
+            }
+
+            if (checkListModel.CheckListAreas != null && checkListModel.CheckListAreas.Any())
+            {
+                _context.CheckListAreaModel.RemoveRange(checkListModel.CheckListAreas);
+            }
+
+            // Eliminar el checklist
+            _context.CheckListModel.Remove(checkListModel);
+
             await _context.SaveChangesAsync();
+            TempData["SuccessChecklist"] = "Checklist eliminado correctamente.";
             return RedirectToAction(nameof(Index));
         }
+
 
         private bool CheckListModelExists(int id)
         {

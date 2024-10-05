@@ -1,48 +1,90 @@
 ﻿@model QuevakWeb.Models.CheckListModel
 
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = "Detalles Checklist";
+    string nombreViewPadre = "Checklist";
+    string nombreView = "Checklist";
 }
 
-<h1>Details</h1>
+<div class="container-fluid">
+    <div>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a asp-controller="Home" asp-action="Index"><i class="bi bi-house"></i> Inicio</a></li>
+            <li class="breadcrumb-item active" aria-current="page">
+                <a asp-action="Index">@nombreViewPadre</a>
+            </li>
+            <li class="breadcrumb-item active" aria-current="page">Detalles @nombreView</li>
+        </ol>
+    </div>
 
-<div>
-    <h4>CheckListModel</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Fecha)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Fecha)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Usuario)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Usuario.IdUsuario)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Cliente)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Cliente.IdCliente)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Observacion)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Observacion)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Firma)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Firma)
-        </dd>
-    </dl>
-</div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model?.IdCheckList">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        <h1 class="h3 mb-0 text-gray-800">@ViewData["Title"]</h1>
+    </div>
+
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">Información del @nombreView : @Model.IdCheckList</h6>
+        </div>
+        <div class="row g-3 p-3">
+            <div class="col-md-4 mb-3">
+                <label asp-for="Fecha" class="form-label fw-bold"></label>
+                <p>@Html.DisplayFor(model => model.Fecha)</p>
+            </div>
+            <div class="col-md-4 mb-3">
+                <label asp-for="Usuario" class="form-label fw-bold"></label>
+                <p>@Html.DisplayFor(model => model.Usuario.InfoUsuario)</p>
+            </div>
+            <div class="col-md-4 mb-3">
+                <label asp-for="Cliente" class="form-label fw-bold"></label>
+                <p>@Html.DisplayFor(model => model.Cliente.NombreRS)</p>
+            </div>
+            <div class="col-md-4 mb-3">
+                <label asp-for="Observacion" class="form-label fw-bold"></label>
+                <p>@Html.DisplayFor(model => model.Observacion)</p>
+            </div>
+            <div class="col-md-4 mb-3">
+                <label for="Areas" class="form-label fw-bold">Areas</label>
+                @foreach (var area in Model.CheckListAreas)
+                {
+                    <div>
+                        @area.Area.Area - @area.Area.HorarioI - @area.Area.HorarioF
+                    </div>
+                }
+            </div>
+            <div class="col-md-4 mb-3">
+                <label for="Tareas" class="form-label fw-bold">Tareas</label>
+                @foreach (var tarea in Model.CheckListTareas)
+                {
+                    <div>@tarea.Tarea.Tarea</div>
+                }
+            </div>
+            <div class="col-md-4 mb-3">
+                <label asp-for="Firma" class="form-label fw-bold"></label>
+                <p>@Html.DisplayFor(model => model.Firma)</p>
+            </div>
+            <div class="col-md-4 mb-3">
+                <label asp-for="NameLastEdit" class="form-label fw-bold"></label>
+                <p>@Html.DisplayFor(model => model.NameLastEdit)</p>
+            </div>
+            <div class="col-md-4 mb-3">
+                <label asp-for="DateLastEdit" class="form-label fw-bold"></label>
+                <p>@Html.DisplayFor(model => model.DateLastEdit)</p>
+            </div>
+        </div>
+        <div class="col-md-12 mb-3 d-flex justify-content-center">
+            <a class="btn btn-primary btn-icon-split mb-3 me-2" asp-action="Edit" asp-route-id="@Model?.IdCheckList">
+                <span class="icon text-white-50">
+                    <i class="bi bi-pen-fill"></i>
+                </span>
+                <span class="text">Editar</span>
+            </a>
+            <a class="btn btn-secondary btn-icon-split mb-3" asp-action="Index">
+                <span class="icon text-white-50">
+                    <i class="bi bi-arrow-left-circle-fill"></i>
+                </span>
+                <span class="text">Regresar</span>
+            </a>
+        </div>
+        <div class="w-100 mb-3"></div>
+    </div>
 </div>

@@ -5,9 +5,9 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
 <Project>
   <PropertyGroup>
     <TimeStampOfAssociatedLegacyPublishXmlFile />
-    <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAKx/aXj4qmEa32h04L8OFpwAAAAACAAAAAAAQZgAAAAEAACAAAAAvxEcifkiUOJHgUTkIlifxQtjjgPxURPrUXYqthH+WTgAAAAAOgAAAAAIAACAAAABugJV4IpwSRAZxQvH7zoz8VpE7dlrAIgRe2xwYatfz/SAAAAD8tnY9CU/x7j5nDrlb+9qPRJeqxnln8RUGG2gOU8Pv2kAAAAC8oCR3PxXTvo4K8v8fDIki3dSYaYqISsX1TT3lbcyFKaI495NXOkU0ALbVBYUrq5QffZbdQ1mUBF5H+2HqhMMK</EncryptedPassword>
-    <_PublishTargetUrl>ftp://KevacWeb.somee.com/www.KevacWeb.somee.com</_PublishTargetUrl>
-    <History>True|2024-09-29T05:29:29.8672192Z;True|2024-09-28T20:45:23.9602193-06:00;False|2024-09-28T20:41:20.2887538-06:00;True|2024-09-28T20:28:34.3059715-06:00;True|2024-08-08T23:38:47.0455238-06:00;</History>
+    <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAKx/aXj4qmEa32h04L8OFpwAAAAACAAAAAAAQZgAAAAEAACAAAAAJ8lcb//EIu8nhYe334AX6iP7Ly5B3YImrBSpykEWG4QAAAAAOgAAAAAIAACAAAADt444cQyF+toT8wcfvCjUrbL1WnhDt9UGI2qIr79Uq7iAAAAA74uuqBfvRcKyv4LXiz4WNPmI/fpL2JPSNj2YzP6fnpkAAAABbzbf4MHvWcwqtXZuVxuTM4bGido2iCFZ1Ga11W1M+W1bMw05ce0FXeESY3UnetqrmLKzZqItKtfiZjiljgBbo</EncryptedPassword>
+    <_PublishTargetUrl>ftp://systemkevac.somee.com/www.SystemKevac.somee.com</_PublishTargetUrl>
+    <History>True|2024-10-07T06:03:06.7526721Z;True|2024-10-06T23:54:39.2342213-06:00;False|2024-10-06T23:45:26.9036367-06:00;</History>
     <LastFailureDetails />
   </PropertyGroup>
   <ItemGroup>
@@ -15,7 +15,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>01/29/2022 09:04:06</publishTime>
     </File>
     <File Include="appsettings.Development.json">
-      <publishTime>09/28/2024 17:27:19</publishTime>
+      <publishTime>10/06/2024 22:57:28</publishTime>
     </File>
     <File Include="appsettings.json">
       <publishTime>08/08/2024 23:14:24</publishTime>
@@ -287,6 +287,9 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
     <File Include="Microsoft.Data.SqlClient.dll">
       <publishTime>10/18/2023 18:46:26</publishTime>
     </File>
+    <File Include="Microsoft.Data.Sqlite.dll">
+      <publishTime>07/11/2024 13:16:32</publishTime>
+    </File>
     <File Include="Microsoft.DiaSymReader.dll">
       <publishTime>06/11/2018 05:53:22</publishTime>
     </File>
@@ -294,22 +297,28 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>07/02/2024 18:21:34</publishTime>
     </File>
     <File Include="Microsoft.EntityFrameworkCore.Abstractions.dll">
-      <publishTime>05/20/2024 00:13:44</publishTime>
+      <publishTime>07/11/2024 13:16:00</publishTime>
     </File>
     <File Include="Microsoft.EntityFrameworkCore.dll">
-      <publishTime>05/20/2024 00:13:58</publishTime>
+      <publishTime>07/11/2024 13:16:16</publishTime>
     </File>
     <File Include="Microsoft.EntityFrameworkCore.Relational.dll">
-      <publishTime>05/20/2024 00:14:06</publishTime>
+      <publishTime>07/11/2024 13:16:28</publishTime>
+    </File>
+    <File Include="Microsoft.EntityFrameworkCore.Sqlite.dll">
+      <publishTime>07/11/2024 13:16:32</publishTime>
     </File>
     <File Include="Microsoft.EntityFrameworkCore.SqlServer.dll">
-      <publishTime>05/20/2024 00:14:52</publishTime>
+      <publishTime>07/11/2024 13:16:36</publishTime>
     </File>
     <File Include="Microsoft.Extensions.Caching.Memory.dll">
       <publishTime>01/14/2022 13:54:16</publishTime>
     </File>
     <File Include="Microsoft.Extensions.DependencyInjection.dll">
       <publishTime>09/26/2022 12:42:22</publishTime>
+    </File>
+    <File Include="Microsoft.Extensions.DependencyModel.dll">
+      <publishTime>10/22/2021 18:47:38</publishTime>
     </File>
     <File Include="Microsoft.Identity.Client.dll">
       <publishTime>10/19/2020 16:51:12</publishTime>
@@ -447,19 +456,19 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>01/29/2022 09:04:10</publishTime>
     </File>
     <File Include="QuevakWeb.deps.json">
-      <publishTime>09/28/2024 23:25:54</publishTime>
+      <publishTime>10/06/2024 23:56:11</publishTime>
     </File>
     <File Include="QuevakWeb.dll">
-      <publishTime>09/28/2024 23:25:50</publishTime>
+      <publishTime>10/06/2024 23:56:07</publishTime>
     </File>
     <File Include="QuevakWeb.exe">
-      <publishTime>09/28/2024 23:25:50</publishTime>
+      <publishTime>10/06/2024 23:56:07</publishTime>
     </File>
     <File Include="QuevakWeb.pdb">
-      <publishTime>09/28/2024 23:25:50</publishTime>
+      <publishTime>10/06/2024 23:56:07</publishTime>
     </File>
     <File Include="QuevakWeb.runtimeconfig.json">
-      <publishTime>08/08/2024 23:03:18</publishTime>
+      <publishTime>10/06/2024 23:47:46</publishTime>
     </File>
     <File Include="ro/Humanizer.resources.dll">
       <publishTime>01/29/2022 09:04:12</publishTime>
@@ -488,20 +497,86 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
     <File Include="ru/Microsoft.CodeAnalysis.Workspaces.resources.dll">
       <publishTime>10/14/2021 13:38:18</publishTime>
     </File>
+    <File Include="runtimes/alpine-arm/native/libe_sqlite3.so">
+      <publishTime>09/18/2022 14:20:42</publishTime>
+    </File>
+    <File Include="runtimes/alpine-arm64/native/libe_sqlite3.so">
+      <publishTime>09/18/2022 14:20:42</publishTime>
+    </File>
+    <File Include="runtimes/alpine-x64/native/libe_sqlite3.so">
+      <publishTime>09/18/2022 14:20:42</publishTime>
+    </File>
+    <File Include="runtimes/browser-wasm/nativeassets/net6.0/e_sqlite3.a">
+      <publishTime>09/18/2022 14:20:42</publishTime>
+    </File>
+    <File Include="runtimes/linux-arm/native/libe_sqlite3.so">
+      <publishTime>09/18/2022 14:20:42</publishTime>
+    </File>
+    <File Include="runtimes/linux-arm64/native/libe_sqlite3.so">
+      <publishTime>09/18/2022 14:20:42</publishTime>
+    </File>
+    <File Include="runtimes/linux-armel/native/libe_sqlite3.so">
+      <publishTime>09/18/2022 14:20:42</publishTime>
+    </File>
+    <File Include="runtimes/linux-mips64/native/libe_sqlite3.so">
+      <publishTime>09/18/2022 14:20:42</publishTime>
+    </File>
+    <File Include="runtimes/linux-musl-arm/native/libe_sqlite3.so">
+      <publishTime>09/18/2022 14:20:42</publishTime>
+    </File>
+    <File Include="runtimes/linux-musl-arm64/native/libe_sqlite3.so">
+      <publishTime>09/18/2022 14:20:42</publishTime>
+    </File>
+    <File Include="runtimes/linux-musl-x64/native/libe_sqlite3.so">
+      <publishTime>09/18/2022 14:20:42</publishTime>
+    </File>
+    <File Include="runtimes/linux-s390x/native/libe_sqlite3.so">
+      <publishTime>09/18/2022 14:20:42</publishTime>
+    </File>
+    <File Include="runtimes/linux-x64/native/libe_sqlite3.so">
+      <publishTime>09/18/2022 14:20:42</publishTime>
+    </File>
+    <File Include="runtimes/linux-x86/native/libe_sqlite3.so">
+      <publishTime>09/18/2022 14:20:42</publishTime>
+    </File>
+    <File Include="runtimes/maccatalyst-arm64/native/libe_sqlite3.dylib">
+      <publishTime>09/18/2022 14:20:42</publishTime>
+    </File>
+    <File Include="runtimes/maccatalyst-x64/native/libe_sqlite3.dylib">
+      <publishTime>09/18/2022 14:20:42</publishTime>
+    </File>
+    <File Include="runtimes/osx-arm64/native/libe_sqlite3.dylib">
+      <publishTime>09/18/2022 14:20:42</publishTime>
+    </File>
+    <File Include="runtimes/osx-x64/native/libe_sqlite3.dylib">
+      <publishTime>09/18/2022 14:20:42</publishTime>
+    </File>
     <File Include="runtimes/unix/lib/netcoreapp3.0/System.Drawing.Common.dll">
       <publishTime>11/15/2019 02:56:36</publishTime>
     </File>
     <File Include="runtimes/unix/lib/netcoreapp3.1/Microsoft.Data.SqlClient.dll">
       <publishTime>10/18/2023 18:46:40</publishTime>
     </File>
+    <File Include="runtimes/win-arm/native/e_sqlite3.dll">
+      <publishTime>09/18/2022 14:20:44</publishTime>
+    </File>
     <File Include="runtimes/win-arm/native/Microsoft.Data.SqlClient.SNI.dll">
       <publishTime>10/20/2020 13:13:26</publishTime>
+    </File>
+    <File Include="runtimes/win-arm64/native/e_sqlite3.dll">
+      <publishTime>09/18/2022 14:20:44</publishTime>
     </File>
     <File Include="runtimes/win-arm64/native/Microsoft.Data.SqlClient.SNI.dll">
       <publishTime>10/20/2020 13:13:26</publishTime>
     </File>
+    <File Include="runtimes/win-x64/native/e_sqlite3.dll">
+      <publishTime>09/18/2022 14:20:44</publishTime>
+    </File>
     <File Include="runtimes/win-x64/native/Microsoft.Data.SqlClient.SNI.dll">
       <publishTime>10/20/2020 13:13:38</publishTime>
+    </File>
+    <File Include="runtimes/win-x86/native/e_sqlite3.dll">
+      <publishTime>09/18/2022 14:20:44</publishTime>
     </File>
     <File Include="runtimes/win-x86/native/Microsoft.Data.SqlClient.SNI.dll">
       <publishTime>10/20/2020 13:13:26</publishTime>
@@ -532,6 +607,15 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
     </File>
     <File Include="sl/Humanizer.resources.dll">
       <publishTime>01/29/2022 09:04:06</publishTime>
+    </File>
+    <File Include="SQLitePCLRaw.batteries_v2.dll">
+      <publishTime>09/18/2022 14:28:54</publishTime>
+    </File>
+    <File Include="SQLitePCLRaw.core.dll">
+      <publishTime>09/18/2022 14:26:48</publishTime>
+    </File>
+    <File Include="SQLitePCLRaw.provider.e_sqlite3.dll">
+      <publishTime>09/18/2022 14:27:04</publishTime>
     </File>
     <File Include="sr-Latn/Humanizer.resources.dll">
       <publishTime>01/29/2022 09:04:08</publishTime>
@@ -624,16 +708,16 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>01/29/2022 09:04:12</publishTime>
     </File>
     <File Include="web.config">
-      <publishTime>09/28/2024 23:25:54</publishTime>
+      <publishTime>10/06/2024 23:56:11</publishTime>
     </File>
     <File Include="wwwroot/css/datatables.css">
-      <publishTime>08/07/2024 00:58:09</publishTime>
+      <publishTime>09/30/2024 22:08:10</publishTime>
     </File>
     <File Include="wwwroot/css/Login.css">
       <publishTime>05/18/2024 23:20:34</publishTime>
     </File>
     <File Include="wwwroot/css/sidebar.css">
-      <publishTime>09/28/2024 21:49:22</publishTime>
+      <publishTime>10/06/2024 22:55:37</publishTime>
     </File>
     <File Include="wwwroot/css/site.css">
       <publishTime>08/05/2024 15:13:07</publishTime>
@@ -726,7 +810,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>08/05/2024 15:13:07</publishTime>
     </File>
     <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap.css">
-      <publishTime>08/05/2024 15:13:07</publishTime>
+      <publishTime>09/30/2024 22:01:49</publishTime>
     </File>
     <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap.css.map">
       <publishTime>08/05/2024 15:13:07</publishTime>
@@ -852,7 +936,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>07/03/2024 13:33:23</publishTime>
     </File>
     <File Include="wwwroot/QuevakWeb.styles.css">
-      <publishTime>08/08/2024 23:03:18</publishTime>
+      <publishTime>10/06/2024 23:47:45</publishTime>
     </File>
     <File Include="zh-CN/Humanizer.resources.dll">
       <publishTime>01/29/2022 09:04:12</publishTime>

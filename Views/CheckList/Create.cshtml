@@ -5,10 +5,7 @@
     string nombreViewPadre = "Lista de Areas";
     string nombreView = "Area";
 }
-<head>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/signature_pad/1.5.3/signature_pad.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/signature_pad/1.5.3/signature-pad.css">
-</head>
+
 <div class="container-fluid">
     <div>
         <ol class="breadcrumb">
@@ -41,26 +38,26 @@
                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
                 <div class="form-group col-md-6 mb-3 d-flex flex-column">
-                    <label asp-for="Fecha" class="control-label"></label>
+                    <label asp-for="Fecha" class="control-label fw-bold"></label>
                     <input asp-for="Fecha" type="datetime-local" class="form-control text-muted" />
                     <span asp-validation-for="Fecha" class="text-danger"></span>
                 </div>
                 <div class="form-group col-md-6 mb-3 d-flex flex-column">
                 </div>
                 <div class="form-group col-md-6 mb-3 d-flex flex-column">
-                    <label asp-for="UsuarioId" class="control-label"></label>
+                    <label asp-for="UsuarioId" class="control-label fw-bold"></label>
                     <select asp-for="UsuarioId" class="form-select text-muted" asp-items="ViewBag.UsuarioId" required>
                         <option value="" selected disabled>--Usuarios--</option>
                     </select>
                 </div>
                 <div class="form-group col-md-6 mb-3 d-flex flex-column">
-                    <label asp-for="ClienteId" class="control-label"></label>
+                    <label asp-for="ClienteId" class="control-label fw-bold"></label>
                     <select asp-for="ClienteId" class="form-select text-muted" asp-items="ViewBag.ClienteId" required>
                         <option value="" selected disabled>--Clientes--</option>
                     </select>
                 </div>
                 <div class="form-group col-md-6 mb-3 d-flex flex-column">
-                    <label>Tareas</label>
+                    <label class="control-label fw-bold">Tareas</label>
                     @foreach (var tarea in ViewBag.TareasDisponibles)
                     {
                         <div class="form-check">
@@ -70,32 +67,30 @@
                     }
                 </div>
                 <div class="form-group col-md-6 mb-3 d-flex flex-column">
-                    <label>Areas</label>
+                    <label class="control-label fw-bold">Areas</label>
                     @foreach (var area in ViewBag.AreasDisponibles)
                     {
                         <div class="form-check">
                             <input class="form-check-input" type="checkbox" name="AreasSeleccionadas" value="@area.IdA" />
-                            <label class="form-check-label">@area.NombreA</label>
+                            <label class="form-check-label">@area.NombreA (@area.HorarioI - @area.HorarioF)</label>
                         </div>
                     }
                 </div>
                 <div class="form-group col-md-6 mb-3 d-flex flex-column">
-                    <label asp-for="Observacion" class="control-label"></label>
+                    <label asp-for="Observacion" class="control-label fw-bold"></label>
                     <input asp-for="Observacion" class="form-control text-muted" />
                     <span asp-validation-for="Observacion" class="text-danger"></span>
                 </div>
                 <div class="form-group col-md-6 mb-3 d-flex flex-column">
-                    <label asp-for="Firma" class="control-label"></label>
+                    <label asp-for="Firma" class="control-label fw-bold"></label>
                     <div class="col-md-6 mb-3">
-                        <canvas id="signatureCanvas2" style="border:1px solid;"></canvas>
+                        <canvas id="signatureCanvas2" style="border:1px solid;" width="400"></canvas>
                         <button type="button" class="btn btn-outline-secondary" onclick="clearSignature2()">Borrar Firma</button>
                         <input type="hidden" asp-for="Firma" id="hiddenFirmaCliente2" />
                         <span asp-validation-for="Firma" class="text-danger"></span>
                     </div>
                 </div>
-                <br />
                 <div class="w-100 mb-3"></div>
-
                 <div class="row mb-3">
                     <div class="col-md-4 d-flex justify-content-start">
                         <a class="btn btn-secondary btn-icon-split mb-3" asp-action="Index">

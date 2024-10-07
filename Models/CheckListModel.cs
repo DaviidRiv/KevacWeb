@@ -14,10 +14,12 @@ namespace QuevakWeb.Models
         public string? Fecha { get; set; }
 
         [ForeignKey("UsuarioId")]
+        [DisplayName("Usuario")]
         public int? UsuarioId { get; set; }
         public UsuarioModel? Usuario { get; set; }
 
         [ForeignKey("ClienteId")]
+        [DisplayName("Cliente")]
         public int? ClienteId { get; set; }
         public ClienteModel? Cliente { get; set; }
 

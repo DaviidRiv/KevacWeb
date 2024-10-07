@@ -63,7 +63,7 @@ namespace QuevakWeb.Controllers
             ViewData["ClienteId"] = new SelectList(_context.ClienteModel, "IdCliente", "NombreRS");
             ViewData["UsuarioId"] = new SelectList(_context.UsuarioModel, "IdUsuario", "InfoUsuario");
             ViewBag.TareasDisponibles = _context.TareaModel.Select(t => new { IdT = t.IdTarea, NombreT = t.Tarea }).ToList();
-            ViewBag.AreasDisponibles = _context.AreaModel.Select(t => new { IdA = t.IdArea, NombreA = t.Area }).ToList();
+            ViewBag.AreasDisponibles = _context.AreaModel.Select(t => new { IdA = t.IdArea, NombreA = t.Area, HorarioI = t.HorarioI, HorarioF = t.HorarioF }).ToList();
             return View();
         }
 
@@ -114,7 +114,7 @@ namespace QuevakWeb.Controllers
             ViewData["ClienteId"] = new SelectList(_context.ClienteModel, "IdCliente", "NombreRS", checkListModel.ClienteId);
             ViewData["UsuarioId"] = new SelectList(_context.UsuarioModel, "IdUsuario", "InfoUsuario", checkListModel.UsuarioId);
             ViewBag.TareasDisponibles = _context.TareaModel.Select(t => new { IdT = t.IdTarea, NombreT = t.Tarea }).ToList();
-            ViewBag.AreasDisponibles = _context.AreaModel.Select(t => new { IdA = t.IdArea, NombreA = t.Area }).ToList();
+            ViewBag.AreasDisponibles = _context.AreaModel.Select(t => new { IdA = t.IdArea, NombreA = t.Area, HorarioI = t.HorarioI, HorarioF = t.HorarioF }).ToList();
             TempData["ErrorChecklist"] = "La creación no pudo ser completada.";
             return View(checkListModel);
         }
@@ -155,6 +155,8 @@ namespace QuevakWeb.Controllers
             {
                 t.IdArea,
                 t.Area,
+                t.HorarioI,
+                t.HorarioF,
                 Seleccionada = checkListModel.CheckListAreas.Any(ct => ct.AreaId == t.IdArea)
             }).ToList();
 
@@ -293,6 +295,8 @@ namespace QuevakWeb.Controllers
             {
                 t.IdArea,
                 t.Area,
+                t.HorarioI,
+                t.HorarioF,
                 Seleccionada = checkListModel.CheckListAreas.Any(ct => ct.AreaId == t.IdArea)
             }).ToList();
 

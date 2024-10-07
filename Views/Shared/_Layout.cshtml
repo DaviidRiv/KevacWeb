@@ -23,6 +23,9 @@
     <link href="~/css/Sidebar.css" rel="stylesheet" asp-append-version="true">
     <script src="~/js/Sidebar.js" asp-append-version="true"></script>
 
+    <!--Firma-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/signature_pad/1.5.3/signature_pad.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/signature_pad/1.5.3/signature-pad.css">
 </head>
 <body>
     <nav class="navbar navbar-expand-sm custom-navbar navbar-dark">
@@ -52,7 +55,7 @@
                     <ul class="sidebar-nav">
                         <li class="sidebar-item">
                             <a asp-controller="Usuario" asp-action="Index" class="sidebar-link">
-                                <i class="bi bi-people"></i>
+                                <i class="bi bi-person-check"></i>
                                 <span class="span-size">Usuarios</span>
                             </a>
                         </li>
@@ -66,7 +69,7 @@
                             <a href="#" class="sidebar-link collapsed has-dropdown" data-bs-toggle="collapse"
                                data-bs-target="#auth" aria-expanded="false" aria-controls="auth">
                                 <i class="bi bi-journal-check"></i>
-                                <span>Checklist</span>
+                                <span class="span-size">Checklist</span>
                             </a>
                             <ul id="auth" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
                                 <li class="sidebar-item">
@@ -86,34 +89,6 @@
                                 </li>
                             </ul>
                         </li>
-                        @*<li class="sidebar-item">
-                            <a href="#" class="sidebar-link collapsed has-dropdown" data-bs-toggle="collapse" data-bs-target="#auth2" aria-expanded="false" aria-controls="auth2">
-                                <i class="bi bi-cash-stack"></i>
-                                <span>Finanzas</span>
-                            </a>
-                            <ul id="auth2" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
-                                <li class="sidebar-item">
-                                    <a asp-controller="Cobranza" asp-action="Index" class="sidebar-link">
-                                        Cobranzas
-                                    </a>
-                                </li>
-                                <li class="sidebar-item">
-                                    <a asp-controller="Reporte" asp-action="ReporteVentas" class="sidebar-link">
-                                        Reporte de Ventas
-                                    </a>
-                                </li>
-                                <li class="sidebar-item">
-                                    <a asp-controller="Reporte" asp-action="ReporteComision" class="sidebar-link">
-                                        Reporte de Comisiones
-                                    </a>
-                                </li>
-                                <li class="sidebar-item">
-                                    <a asp-controller="Gastos" asp-action="Index" class="sidebar-link">
-                                        Gastos
-                                    </a>
-                                </li>
-                            </ul>
-                </li>*@
                     </ul>
                 }
                 else
